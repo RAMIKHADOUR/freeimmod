@@ -1,0 +1,30 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+#header{
+  background-color:rgb(3, 3, 79);
+}
+
+#free {
+    color: rgb(12, 9, 213);
+    font-size: 30px;
+    font-weight: bold;
+    background-color: orange;
+}
+
+#immo {
+    color: orangered;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+footer {
+    background-color:rgb(3, 3, 79);
+}
+#subscribe{
+    background: rgb(2,0,36);
+    background: linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(2,72,108,1) 35%, rgba(0,212,255,1) 100%);
+}
+
