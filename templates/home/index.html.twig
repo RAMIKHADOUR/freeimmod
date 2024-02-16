@@ -1,20 +1,219 @@
-{% extends 'base.html.twig' %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0">
+        <title>{% block title %}Accueil!{% endblock %}</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+        <link rel="stylesheet" href="/css/home.css">
+        {% block stylesheets %}{% endblock %}
+        {% block javascripts %}{% endblock %}
+        
+    </head>
+    <body>
+        <header class="mb-auto">
 
-{% block title %}Hello HomeController!{% endblock %}
+            <div class="navbar p-3 m-3">
+                <div class="container-fluid">
+                    <div>
+                        <a class="navbar-brand" href=""><span id="free">Free</span><span id="immo">Immo</span></a>
+                    </div>
+                    <div>
+                        <div class="input-group">
 
-{% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+                        </div>
+                    </div>
+                    <div>
+                    
+                        <a class="btn btn-warning text-decoration-none fs-6 fw-bolder text-primary" href="" role="button">Mon Compte</a>
+                    </div>
+                </div>
+            </div>
+        </header>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'C:/wamp64/www/freeimmod/src/Controller/HomeController.php'|file_link(0) }}">src/Controller/HomeController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/wamp64/www/freeimmod/templates/home/index.html.twig'|file_link(0) }}">templates/home/index.html.twig</a></code></li>
-    </ul>
-</div>
-{% endblock %}
+        <main>
+
+            <img src="{{asset('images/AnnonceHomepage.png')}}" alt="annonceicon" style="width:100px;">
+            <img src="{{asset('images/appartement.png')}}" alt="appartementannonce" style="width:100px;">
+            <img src="{{asset('images/annonces.jpg')}}" alt="annonces" style="width:200px;">
+
+            <div class="m-5" style="color:orange;text-align:center;">
+                <h5>Donnez de la visibilité à votre bien immobilier en déposant une annonce</h5>
+                <h5>avec votre partenaire de confiance FreeImmo</h5>
+                <a class="btn btn-warning text-decoration-none fs-6 fw-bolder text-primary" href="" role="button"><strong>+</strong>Deposer Une Annonce</a>
+            </div>
+           
+        </main>
+        <section>
+            <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+                        aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+                        aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+                        aria-label="Slide 3"></button>
+                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3"
+                        aria-label="Slide 4"></button>
+                </div>
+                <div class="carousel-inner">
+                    <div>
+                        <div class="carousel-item active">
+        
+                            <img src="{{asset('images/homeImmages/apprt.jpeg')}}" class="d-block w-100" alt="Appartement"
+                                style="height:500px;">
+        
+                            <div class="carousel-caption">
+                                
+                                
+                                <h5>Appartement</h5>
+                                <a href="">40</a>
+                            </div>
+                        </div>
+                        <div class="carousel-item ">
+                            <img src="{{asset('images/homeImmages/house.jpg')}}" class="d-block w-100" alt="Maison"
+                                style="height:500px;">
+                            <div class="carousel-caption">
+                                <h5>Maison</h5>
+                                <a href="">50</a>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <img src="{{asset('images/homeImmages/pro.jpg')}}" class="d-block w-100" alt="Profesionnels"
+                                style="height:500px;">
+                            <div class="carousel-caption">
+                                
+                            
+                                <h5>Professionel</h5>
+                                <a href="">5</a>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <img src="{{asset('images/homeImmages/terrain.jpg')}}" class="d-block w-100" alt="Terrain"
+                                style="height:500px;">
+                            <div class="carousel-caption">
+                             
+                                <h5>Terrain</h5>
+                                <a href="">3</a>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+                        data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+                        data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+<br><br><br><br>
+
+
+
+
+        <!--Promotions -->
+
+        <section>
+            <h2 class="my-0 fw-normal text-center text-warning mb-4">Abonnement</h2>
+            <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+                
+              <div class="col">
+                <div class="card m-4 rounded-3 shadow-sm">
+                    <div class="card-header py-3">
+                      <h2 class="my-0 fw-normal"><a href="#!" class=" text-decoration-none text-warning m-2">Par jour</a></h2>
+                    </div>
+                    <div class="card-body">
+                   
+                        
+                      <ul class="list-unstyled mt-3 mb-4">
+                        <li>20 users included</li>
+                        <li>10 GB of storage</li>
+                        <li>Priority email support</li>
+                        <li>Help center access</li>
+                      </ul>
+                      <button type="button" class="w-100 btn btn-lg btn-primary">Get started</button>
+                    </div>
+                  </div>
+              </div>
+              <div class="col">
+                <div class="card m-4 rounded-3 shadow-sm">
+                  <div class="card-header py-3">
+                    <h2 class="my-0 fw-normal"><a href="#!" class=" text-decoration-none text-warning m-2">Par Semaine</a></h2>
+                  </div>
+                  <div class="card-body">
+                   
+                    
+                   
+                    <ul class="list-unstyled mt-3 mb-4">
+                      <li>20 users included</li>
+                      <li>10 GB of storage</li>
+                      <li>Priority email support</li>
+                      <li>Help center access</li>
+                    </ul>
+                    <button type="button" class="w-100 btn btn-lg btn-primary">Get started</button>
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="card m-4 rounded-3 shadow-sm">
+                    <div class="card-header py-3">
+                      <h2 class="my-0 fw-normal"><a href="#!" class=" text-decoration-none text-warning m-2">Par Mois</a></h2>
+                    </div>
+                    <div class="card-body">
+                      
+                     
+                      <ul class="list-unstyled mt-3 mb-4">
+                        <li>20 users included</li>
+                        <li>10 GB of storage</li>
+                        <li>Priority email support</li>
+                        <li>Help center access</li>
+                      </ul>
+                      <button type="button" class="w-100 btn btn-lg btn-primary">Get started</button>
+                    </div>
+                  </div>
+            </div>
+            </div>
+        
+        </section>
+        
+  <hr>
+        <!--Footer-->
+
+    <footer>
+            <div class="card m-5" id="subscribe">
+                <div class="card-body m-4">
+                        <form action="">
+                            <strong class="text-warning">Ne manquez pas de vous abonner à notre newsletter!</strong>
+                            <label class="input-group mt-2">
+    
+                                <input type="text" class="form-control" placeholder="Votre E-mail">
+                                <button class="btn btn-primary" type="button" id="button-addon2">Subscribe</button>
+                            </label>
+                        </form>
+                </div>
+            </div>
+
+            <div class="text-center">
+                <h6><a href="#!" class=" text-decoration-none text-white m-2">A Propos</a>
+                <a href="#!" class=" text-decoration-none text-white m-2">Acheter</a>
+                <a href="#!" class=" text-decoration-none text-white m-2">Location</a>
+                <a href="#!" class=" text-decoration-none text-white m-2">Contact-nous</a></h6>
+            </div>
+
+            <div class="text-center p-3 text-warning" style="background-color: rgba(0, 0, 0, 0.2);">
+              <h6>  © 2023 Copyright :
+                <a class="text-decoration-none text-warning" href="home.html"> FreeImmo</a></h6>
+            </div>
+    </footer>
+
+    </body>
+</html>
