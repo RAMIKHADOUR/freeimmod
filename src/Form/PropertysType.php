@@ -13,6 +13,8 @@ class PropertysType extends AbstractType
     {
         $builder
             ->add('code')
+            ->add('category')
+            ->add('typeproperty')
             ->add('surface')
             ->add('description')
             ->add('prix')
@@ -31,10 +33,7 @@ class PropertysType extends AbstractType
             ->add('piscine')
             ->add('camera_surveillance')
             ->add('image')
-            ->add('createdAt')
-            ->add('user')
-            ->add('category')
-            ->add('typeproperty')
+           
         ;
     }
 

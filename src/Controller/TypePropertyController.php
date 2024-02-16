@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-#[Route('/type/property')]
+#[Route('/types')]
 class TypePropertyController extends AbstractController
 {
     #[Route('/', name: 'app_type_property_index', methods: ['GET'])]
