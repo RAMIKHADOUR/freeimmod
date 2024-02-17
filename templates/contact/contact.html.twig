@@ -1,0 +1,114 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Page-Contact{% endblock %}
+
+{% block body %}
+
+<div class="container mb-4">
+
+
+    <h2 class="h1-responsive font-weight-bold text-center my-4">Contact-nous</h2>
+
+    <p class="text-center w-responsive mx-auto mb-5">Avez-vous des questions? N'hésitez pas à nous contacter
+        directement. Notre équipe reviendra vers vous dans quelques heures pour vous aider.</p>
+
+    <div class="row">
+
+
+        <div class="col-md-9 mb-md-0 mb-5">
+            
+
+                {{ form_start(form) }}
+                <div class="row">
+
+                    <!--Grid column-->
+
+                    <div class="form-group col-4">
+                        {{ form_label(form.nom) }}
+                        {{ form_widget(form.nom) }}
+                        <div class="form-error">
+                            {{ form_errors(form.nom) }}
+                        </div>
+                    </div>
+
+
+                    <div class="form-group col-4">
+                        {{ form_label(form.prenom) }}
+                        {{ form_widget(form.prenom) }}
+                        <div class="form-error">
+                            {{ form_errors(form.prenom) }}
+                        </div>
+                    </div>
+
+                    <div class="form-group col-4">
+                        {{ form_label(form.email) }}
+                        {{ form_widget(form.email) }}
+                        <div class="form-error">
+                            {{ form_errors(form.email) }}
+                        </div>
+                    </div>
+                    <div class="form-group col-4">
+                        {{ form_label(form.teleportable) }}
+                        {{ form_widget(form.teleportable) }}
+                        <div class="form-error">
+                            {{ form_errors(form.teleportable) }}
+                        </div>
+                    </div>
+
+                    <div class="form-group col-4">
+                        {{ form_label(form.sujet) }}
+                        {{ form_widget(form.sujet) }}
+                        <div class="form-error">
+                            {{ form_errors(form.sujet) }}
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="row">
+
+
+                    <div class="col-md-12">
+
+                        <div class="form-group col-4">
+                            {{ form_label(form.content) }}
+                            {{ form_widget(form.content) }}
+                            <div class="form-error">
+                                {{ form_errors(form.content) }}
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="form-group mt-4">
+                    {{ form_widget(form) }}
+                    <button type="submit" class="btn btn-primary">{{ button_label|default('envoyer') }}</button>
+
+                </div>
+                {{ form_end(form) }}
+            
+
+            <div class="col-md-3 text-center">
+                <ul class="list-unstyled mb-0">
+                    <li><i class="fas fa-map-marker-alt fa-2x"></i>
+                        <p>09 Rue Chantal Sandrin, Lyon 69008, France</p>
+                    </li>
+
+                    <li><i class="fas fa-phone mt-4 fa-2x"></i>
+                        <p>
+                            +33 658583359
+                        </p>
+                    </li>
+
+                    <li><i class="fas fa-envelope mt-4 fa-2x"></i>
+                        <p>ramikhaddour@gmail.com</p>
+                    </li>
+                </ul>
+            </div>
+
+
+        </div>
+
+    </div>
+
+    {% endblock %}

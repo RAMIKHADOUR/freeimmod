@@ -5,6 +5,7 @@ namespace App\Form;
 use App\Entity\Propertys;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Vich\UploaderBundle\Form\Type\VichImageType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class PropertysType extends AbstractType
@@ -32,7 +33,8 @@ class PropertysType extends AbstractType
             ->add('salle_sport')
             ->add('piscine')
             ->add('camera_surveillance')
-            ->add('image')
+            ->add('user')
+            ->add('imageFile',VichImageType::class)
            
         ;
     }

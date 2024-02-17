@@ -27,7 +27,7 @@
                 <th>Salle_sport</th>
                 <th>Piscine</th>
                 <th>Camera_surveillance</th>
-                <th>Image</th>
+                <th>Imagename</th>
                 <th>CreatedAt</th>
                 <th>actions</th>
             </tr>
@@ -54,7 +54,7 @@
                 <td>{{ property.salleSport ? 'Yes' : 'No' }}</td>
                 <td>{{ property.piscine ? 'Yes' : 'No' }}</td>
                 <td>{{ property.cameraSurveillance ? 'Yes' : 'No' }}</td>
-                <td>{{ property.image }}</td>
+                <td>{{ property.imageFile }}</td>
                 <td>{{ property.createdAt ? property.createdAt|date('Y-m-d H:i:s') : '' }}</td>
                 <td>
                     <a href="{{ path('app_propertys_show', {'id': property.id}) }}">show</a>

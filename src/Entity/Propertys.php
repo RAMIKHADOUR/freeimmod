@@ -7,8 +7,12 @@ use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use App\Repository\PropertysRepository;
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 #[ORM\Entity(repositoryClass: PropertysRepository::class)]
+#[ORM\HasLifecycleCallbacks]
+#[Vich\Uploadable]
 class Propertys
 {
     #[ORM\Id]
@@ -70,19 +74,22 @@ class Propertys
     #[ORM\Column(nullable: true)]
     private ?bool $camera_surveillance = null;
 
-    #[ORM\Column(type: Types::BINARY)]
-    #[Assert\Image(
-        minWidth: 200,
-        maxWidth: 400,
-        minHeight: 200,
-        maxHeight: 400,
-    )]
-    private $image = null;
+ 
+ #[Vich\UploadableField(mapping: 'propertys', fileNameProperty: 'imageName')]
+ private ?File $imageFile = null;
+
+ #[ORM\Column(nullable: true)]
+ private ?string $imageName = null;
+
+
 
     #[ORM\Column]
     private ?DateTimeImmutable $createdAt = null;
 
-    #[ORM\ManyToOne(inversedBy: 'propertys')]
+    #[ORM\Column(nullable: true)]
+    private ?\DateTimeImmutable $updatedAt = null;
+
+    #[ORM\ManyToOne(inversedBy: 'propertys',targetEntity:Users::class)]
     #[ORM\JoinColumn(nullable: false)]
     private ?Users $user = null;
 
@@ -97,7 +104,7 @@ class Propertys
     public function __construct()
     {
         $this->createdAt=new \DateTimeImmutable();
-
+        $this->updatedAt=new \DateTimeImmutable();
     }
 
     public function getId(): ?int
@@ -321,18 +328,6 @@ class Propertys
         return $this;
     }
 
-    public function getImage()
-    {
-        return $this->image;
-    }
-
-    public function setImage($image): static
-    {
-        $this->image = $image;
-
-        return $this;
-    }
-
     public function getCreatedAt(): ?\DateTimeImmutable
     {
         return $this->createdAt;
@@ -381,5 +376,40 @@ class Propertys
         return $this;
     }
 
-   
+    /**
+     * If manually uploading a file (i.e. not using Symfony Form) ensure an instance
+     * of 'UploadedFile' is injected into this setter to trigger the update. If this
+     * bundle's configuration parameter 'inject_on_load' is set to 'true' this setter
+     * must be able to accept an instance of 'File' as the bundle will inject one here
+     * during Doctrine hydration.
+     *
+     * @param File|\Symfony\Component\HttpFoundation\File\UploadedFile|null $imageFile
+     */
+    public function setImageFile(?File $imageFile = null): void
+    {
+        $this->imageFile = $imageFile;
+
+        if (null !== $imageFile) {
+            // It is required that at least one field changes if you are using doctrine
+            // otherwise the event listeners won't be called and the file is lost
+            $this->updatedAt = new \DateTimeImmutable();
+        }
+    }
+
+    public function getImageFile(): ?File
+    {
+        return $this->imageFile;
+    }
+
+    public function setImageName(?string $imageName): void
+    {
+        $this->imageName = $imageName;
+    }
+
+    public function getImageName(): ?string
+    {
+        return $this->imageName;
+    }
+
+
 }

@@ -122,6 +122,11 @@
             <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
             <span class="fs-4">Gestion</span>
             </a>
+
+            <h4 class="mb-2 text-warning">
+                Bonjour {{ app.user.prenom }}
+            </h4>
+
             <hr>
             <ul class="nav nav-pills flex-column mb-auto">
                 <li class="nav-item">
@@ -149,11 +154,11 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#" class="nav-link link-body-emphasis">
+                    <a href="{{path('app_propertys_index')}}" class="nav-link link-body-emphasis">
                         <svg class="bi pe-none me-2" width="16" height="16">
                             <use xlink:href="#grid" />
                         </svg>
-                        Products
+                        Propertys
                     </a>
                 </li>
                 <li>

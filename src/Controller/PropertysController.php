@@ -45,8 +45,10 @@ class PropertysController extends AbstractController
     #[Route('/{id}', name: 'app_propertys_show', methods: ['GET'])]
     public function show(Propertys $property): Response
     {
+        $user = $property->getUser();
         return $this->render('propertys/show.html.twig', [
             'property' => $property,
+            'user'=> $user,
         ]);
     }
 

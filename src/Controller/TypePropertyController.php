@@ -45,8 +45,10 @@ class TypePropertyController extends AbstractController
     #[Route('/{id}', name: 'app_type_property_show', methods: ['GET'])]
     public function show(TypeProperty $typeProperty): Response
     {
+        $propertys = $typeProperty->getPropertys();
         return $this->render('type_property/show.html.twig', [
             'type_property' => $typeProperty,
+            'propertys'=>$propertys,
         ]);
     }
 
