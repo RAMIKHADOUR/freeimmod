@@ -3,71 +3,58 @@
 {% block title %}Propertys index{% endblock %}
 
 {% block body %}
-    <h1>Propertys index</h1>
+<div class="w-100 m-4">
+    <h1>Annonce index</h1>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Code</th>
-                <th>Surface</th>
-                <th>Description</th>
-                <th>Prix</th>
-                <th>Chambres</th>
-                <th>Salle_bains</th>
-                <th>Etages</th>
-                <th>Numero_etage</th>
-                <th>Adresse</th>
-                <th>Ville</th>
-                <th>Code_postale</th>
-                <th>Region</th>
-                <th>Internet</th>
-                <th>Balcon</th>
-                <th>Garage</th>
-                <th>Salle_sport</th>
-                <th>Piscine</th>
-                <th>Camera_surveillance</th>
-                <th>Imagename</th>
-                <th>CreatedAt</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for property in propertys %}
-            <tr>
-                <td>{{ property.id }}</td>
-                <td>{{ property.code }}</td>
-                <td>{{ property.surface }}</td>
-                <td>{{ property.description }}</td>
-                <td>{{ property.prix }}</td>
-                <td>{{ property.chambres }}</td>
-                <td>{{ property.salleBains }}</td>
-                <td>{{ property.etages }}</td>
-                <td>{{ property.numeroEtage }}</td>
-                <td>{{ property.adresse }}</td>
-                <td>{{ property.ville }}</td>
-                <td>{{ property.codePostale }}</td>
-                <td>{{ property.region }}</td>
-                <td>{{ property.internet ? 'Yes' : 'No' }}</td>
-                <td>{{ property.balcon ? 'Yes' : 'No' }}</td>
-                <td>{{ property.garage ? 'Yes' : 'No' }}</td>
-                <td>{{ property.salleSport ? 'Yes' : 'No' }}</td>
-                <td>{{ property.piscine ? 'Yes' : 'No' }}</td>
-                <td>{{ property.cameraSurveillance ? 'Yes' : 'No' }}</td>
-                <td>{{ property.imageFile }}</td>
-                <td>{{ property.createdAt ? property.createdAt|date('Y-m-d H:i:s') : '' }}</td>
-                <td>
-                    <a href="{{ path('app_propertys_show', {'id': property.id}) }}">show</a>
-                    <a href="{{ path('app_propertys_edit', {'id': property.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="22">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+    <div class="container">
+        <div class="row">
 
-    <a href="{{ path('app_propertys_new') }}">Create new</a>
+            {% for property in propertys %}
+            <div class="col-sm-6 mb-3 mb-sm-0">
+                <div class="card m-3">
+                    <div class="m-2"><img style="width:100%;" src="{{ vich_uploader_asset(property, 'imageFile') }}" />
+                    </div>
+                    <div class="m-2">
+                        <p><strong> N° Référence : </strong> {{ (property.code) }} </p>
+                        <p><strong> | Category : </strong>{{ (property.category) }}<strong> | Type : </strong>{{
+                            (property.typeproperty) }}</p>
+                        <p class="text-justify">{{ (property.description) }}</p>
+                        <p><strong>Surface : </strong> {{ (property.surface) }} <strong> M²</strong><strong> | Prix :
+                            </strong>{{ (property.prix) }} <strong> € </strong></p>
+                        <p><strong>Chambres : </strong>{{ (property.chambres) }}<strong> | Salle de Bains : </strong>{{
+                            (property.salleBains) }}</p>
+                        <p><strong>Number des Etages :</strong>{{ (property.etages) }}<strong>| Numero-Etage
+                                :</strong>{{ (property.numeroEtage) }}</p>
+                        <p><strong>Addresse : </strong>{{ (property.adresse) }} - {{( property.ville) }} {{
+                            (property.codePostale) }}</p>
+                        <p><strong>Region : </strong> {{ (property.region) }} </p>
+                        <p><strong>Internet :</strong>{{ property.internet ? 'Yes' : 'No' }} <strong>| Balcon
+                                :</strong>{{ property.balcon ? 'Yes' : 'No' }} <strong> | Garage :</strong>{{
+                            property.garage ? 'Yes' : 'No' }}</p>
+                        <p><strong>Salle de sport :</strong>{{ property.sallesport ? 'Yes' : 'No' }} <strong> | Piscine
+                                :</strong>{{ property.piscine ? 'Yes' : 'No' }} <strong> | Camera :</strong>{{
+                            property.camerasurveillance ? 'Yes' : 'No' }}</p>
+
+                    </div>
+
+                    <div>
+                        <a class="btn btn-primary m-4" href="{{ path('app_propertys_show', {'id': property.id}) }}"
+                            role="button">show</a>
+                        <a class="btn btn-primary m-4" href="{{ path('app_propertys_edit', {'id': property.id}) }}" role="button">edit</a>
+
+                    </div>
+
+                </div>
+            </div>
+            {% else %}
+            <p>No records found</p>
+
+
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+
+<a class="btn btn-primary m-4" href="{{ path('app_propertys_new') }}">Create new</a>
 {% endblock %}

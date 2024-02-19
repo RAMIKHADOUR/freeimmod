@@ -7,6 +7,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Vich\UploaderBundle\Form\Type\VichImageType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 
 class PropertysType extends AbstractType
 {
@@ -22,7 +23,8 @@ class PropertysType extends AbstractType
             ->add('chambres')
             ->add('salle_bains')
             ->add('etages')
-            ->add('numero_etage')
+            ->add('numero_etage'
+            )
             ->add('adresse')
             ->add('ville')
             ->add('code_postale')
@@ -34,7 +36,9 @@ class PropertysType extends AbstractType
             ->add('piscine')
             ->add('camera_surveillance')
             ->add('user')
-            ->add('imageFile',VichImageType::class)
+            ->add('imageFile',VichImageType::class,[
+                'label'=>"Image principale de l'annonce"
+            ])
            
         ;
     }

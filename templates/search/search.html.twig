@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello SearchController!{% endblock %}
+
+{% block body %}
+<div>
+    <form action="">
+        <input type="search" name="search" placeholder="Search...">
+        <button type="submit">Rechercher</button>
+    </form>
+</div>
+{% for property in propertys %}
+<div class="col-sm-6 mb-3 mb-sm-0">
+    <div class="card m-3">
+        <div class="m-2"><img style="width:100%;" src="{{ vich_uploader_asset(property, 'imageFile') }}" /></div>
+        <div class="m-2">
+            <p><strong> N° Référence : </strong> {{ (property.code) }} </p>
+            <p><strong> | Category : </strong>{{ (property.category) }}<strong> | Type : </strong>{{
+                (property.typeproperty) }}</p>
+            <p class="text-justify">{{ (property.description) }}</p>
+            <p><strong>Surface : </strong> {{ (property.surface) }} <strong> M²</strong><strong> | Prix : </strong>{{
+                (property.prix) }} <strong> € </strong></p>
+            <p><strong>Chambres : </strong>{{ (property.chambres) }}<strong> | Salle de Bains : </strong>{{
+                (property.salleBains) }}</p>
+            <p><strong>Number des Etages :</strong>{{ (property.etages) }}<strong>| Numero-Etage :</strong>{{
+                (property.numeroEtage) }}</p>
+            <p><strong>Addresse : </strong>{{ (property.adresse) }} - {{( property.ville) }} {{ (property.codePostale)
+                }}</p>
+            <p><strong>Region : </strong> {{ (property.region) }} </p>
+
+
+
+            <p><strong>Internet :</strong>{{ property.internet ? 'Yes' : 'No' }} <strong>| Balcon :</strong>{{
+                property.balcon ? 'Yes' : 'No' }} <strong> | Garage :</strong>{{ property.garage ? 'Yes' : 'No' }}</p>
+
+
+            <p><strong>Salle de sport :</strong>{{ property.sallesport ? 'Yes' : 'No' }} <strong> | Piscine :</strong>{{
+                property.piscine ? 'Yes' : 'No' }} <strong> | Camera :</strong>{{ property.camerasurveillance ? 'Yes' :
+                'No' }}</p>
+        </div>
+
+        <div>
+            <a class="btn btn-primary m-4" href="{{ path('app_propertys_show', {'id': property.id}) }}"
+                role="button">show</a>
+        </div>
+        {% else %}
+        <p>No records found</p>
+    </div>
+</div>
+
+{% endfor %}
+
+
+{% endblock %}

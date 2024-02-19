@@ -78,7 +78,7 @@ class Propertys
  #[Vich\UploadableField(mapping: 'propertys', fileNameProperty: 'imageName')]
  private ?File $imageFile = null;
 
- #[ORM\Column(nullable: true)]
+ #[ORM\Column(type:'string', nullable: true)]
  private ?string $imageName = null;
 
 

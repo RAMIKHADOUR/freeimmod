@@ -45,4 +45,18 @@ class PropertysRepository extends ServiceEntityRepository
 //            ->getOneOrNullResult()
 //        ;
 //    }
+
+
+   /**
+    * @return Propertys[] Returns an array of Propertys objects
+    */
+   public function findBySearch($text): array
+   {
+       return $this->createQueryBuilder('a')
+           ->andWhere('a.code LIKE :val')
+           ->setParameter('val', "%$text%")
+           ->getQuery()
+           ->getResult()
+       ;
+   }
 }
